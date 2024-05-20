@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+    Signup
+{% endblock title %}
+{% block content %}
+{{message}}
+<form method="post" action="{% url 'new_acc' %}">
+{% csrf_token %}
+    <br>
+    {{ form.as_p }}
+    <input type="submit" value="Sign up">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+{% endblock %}

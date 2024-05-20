@@ -1,0 +1,36 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+MMO BOARD
+{% endblock title %}
+
+{% block content %}
+<h3>Replies</h3>
+   <form action="" method="get">
+           <p><label for="id_announce">Announce:</label>
+                <select name="announce" id="id_announce">
+                    {% for p in posts %}
+                        <option value="{{ p.pk }}">{{p.title}}</option>
+                    {% endfor %}
+                </select>
+             </p>
+       <input type="submit" value="Найти">
+   </form>
+   <hr>
+    {% if replies %}
+        {% for r in replies %}
+            Title: {{ r.announce.title }}<br>
+            User: {{ r.user.username }}<br>
+            Date: {{ r.time_in|date:'M d Y H:i' }}<br>
+            Submited: {% if r.submit_reply %}&#10004;{% endif %}<br>
+            Comment: <p>{{ r.text_reply }}</p>
+            {% if r.submit_reply == False %}
+                <a href="{% url 'submit' pk=r.id %}">Submit</a>
+            {% endif %}
+            <a href="{% url 'rep_delete' pk=r.id %}">Delete</a>
+        <hr>
+        {% endfor %}
+
+    {% else %}
+        Nothing yet.
+    {% endif %}
+{% endblock content %}

@@ -1,0 +1,12 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+Reply delete
+{% endblock title %}
+
+{% block content %}
+Submit this reply?
+<form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Delete" align="right">
+</form>
+{% endblock content %}

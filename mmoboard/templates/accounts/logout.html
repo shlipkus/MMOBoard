@@ -1,0 +1,12 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+Log out
+{% endblock title %}
+
+{% block content %}
+Do you really want to log out?
+<form method="post" action="{% url 'out' %}">
+    {% csrf_token %}
+    <input type="submit" value="logout" align="right">
+</form>
+{% endblock content %}

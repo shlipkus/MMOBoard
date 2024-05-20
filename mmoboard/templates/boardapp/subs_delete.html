@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+MMO BOARD
+{% endblock title %}
+
+{% block content %}
+<form action="" method="post">
+    {% csrf_token %}
+    <p>Select categories for unsubscribe:</p>
+    {% for sub in subs %}
+    <p><input type="checkbox" name="cat_list" value="{{ sub.category }}"> {{ sub.category }}</p>
+    {% endfor %}
+    <input type="submit" value="Save" />
+</form>
+{% endblock content %}

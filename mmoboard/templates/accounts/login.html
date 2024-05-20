@@ -1,0 +1,16 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+    Sign in
+{% endblock title %}
+{% block content %}
+<p>If you don't have an account <a href="/accounts/signup/">Sign up</a></p>
+<p>{{message}}</p>
+<form method="post" action="{% url 'login' %}">
+{% csrf_token %}
+    <br>
+    {{ form.as_p }}
+    <input type="submit" value="login">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+{% endblock %}

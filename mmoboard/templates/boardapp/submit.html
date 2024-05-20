@@ -1,0 +1,12 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+Submit
+{% endblock title %}
+
+{% block content %}
+Submit this reply?
+<form method="post" action="">
+    {% csrf_token %}
+    <input type="submit" value="Submit" align="right">
+</form>
+{% endblock content %}

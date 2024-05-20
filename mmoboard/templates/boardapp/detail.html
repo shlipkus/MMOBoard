@@ -1,0 +1,29 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+MMO BOARD
+{% endblock title %}
+
+{% block content %}
+<h3>{{post.title}}</h3>
+        {% for img in post.images_set.all %}
+            <br>
+            <img src="{{ img.image.url }}" height="400">
+        {% endfor %}
+        {% for vid in post.video_set.all %}
+            <p><video width="400" height="300" controls="controls">
+             <source src="{{ vid.video.url }}">
+            </video></p>
+        {% endfor %}
+<br>
+{{post.text}}
+<br>
+<a href="{% url 'reply' post.id %}">Reply</a>
+<hr>
+<h3>Replies:</h3>
+{% if replist %}
+    {% for rep in replist %}
+        {{ rep.user }} Date: {{ rep.time_in|date:'M d Y H:i' }}:<br>
+        {{ rep.text_reply }}<hr>
+    {% endfor %}
+{% endif %}
+{% endblock content %}

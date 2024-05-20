@@ -1,0 +1,15 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+    Verification
+{% endblock title %}
+{% block content %}
+We have sent a confirmation code to your email. Please enter this code in the field below.
+<form method="post" action="{% url 'verify' %}">
+{% csrf_token %}
+    <br>
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+    <input type="hidden" name="next" value="{{ next }}">
+</form>
+
+{% endblock %}

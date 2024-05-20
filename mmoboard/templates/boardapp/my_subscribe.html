@@ -1,0 +1,17 @@
+{% extends 'flatpages/default.html' %}
+{% block title %}
+MMO BOARD
+{% endblock title %}
+
+{% block content %}
+<form method="post">
+   <p>My subscriptions:</p>
+    <hr>
+    {% for sub in subs %}
+    <p>{{ sub.category }} </p>
+    {% endfor %}
+</form>
+<hr>
+<p><a href="/subscribe/" >Add subscription</a></p>
+<p><a href="/unsubscribe/" >Delete subscription</a></p>
+{% endblock content %}
