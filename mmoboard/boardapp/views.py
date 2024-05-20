@@ -128,6 +128,7 @@ class AddPost(LoginRequiredMixin, CreateView):
 
 
 ########################################### здесь обитают функции представлений #####################################
+#добавление отклика
 @login_required
 def add_reply(request, pk):
     if request.method == "POST":
