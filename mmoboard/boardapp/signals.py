@@ -40,7 +40,7 @@ def reply_created(instance, created, **kwargs):
     subject = f'User {instance.user} replied to your post.'
 
     text_content = (
-        f'Гыук {instance.user} replied to your post.'
+        f'User {instance.user} replied to your post.'
         f'Post: {instance.announce.title}\n'
         f'link to the replies page: http://127.0.0.1:8000{instance.get_absolute_url()}'
     )
